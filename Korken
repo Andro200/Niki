@@ -1,0 +1,80 @@
+Program Gruppenufgabe;
+
+(*Prozeduren*)
+
+Procedure drehe_rechts;
+    begin
+        drehe_links;
+        drehe_links;
+        drehe_links;
+    end;
+    
+Procedure korken_drauf;
+    begin
+        if platz_belegt then
+        begin
+            gib_ab;   
+            vor;
+        end;
+    end;
+    
+Procedure eine_reihe;
+    begin
+        korken_drauf; 
+        korken_drauf; 
+        korken_drauf;     
+        gib_ab;            
+        
+    end;
+    
+Procedure gib_auf;
+(*Füllt die Reihen wollte mich nichts anderes nehmen lassen*)
+    begin
+        eine_reihe;
+        drehe_rechts;
+        vor;
+        drehe_rechts;
+        eine_reihe;
+        drehe_links;;
+        vor;
+        drehe_links;
+        eine_reihe;
+    end;
+    
+Procedure zum_feld;
+    begin
+        vor;
+        vor;
+        vor;
+        drehe_links;
+        vor;
+        vor;
+    end;
+    
+Procedure next_feld;
+    begin
+        drehe_rechts;
+        drehe_rechts;
+        vor;
+        vor;   
+        vor; 
+        drehe_links;
+        vor;
+        vor;
+        drehe_links;
+    end;
+    
+Procedure kisten_machen;
+    begin
+        gib_auf;
+        if not hat_vorrat then abschalten;
+        next_feld;
+    end;
+    
+(*Hauptprogramm*)
+begin
+    arbeitsfeld (Korken);   
+    zum_feld;
+    while hat_vorrat do kisten_machen;
+    
+end.
