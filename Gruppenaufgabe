@@ -1,0 +1,52 @@
+Program Gruppenufgabe;
+
+(*Prozeduren*)
+
+Procedure drehe_rechts;
+    begin
+        drehe_links;
+        drehe_links;
+        drehe_links;
+    end;
+    
+Procedure pizza_kontrolle;
+    begin
+        if platz_belegt then 
+            begin
+                nimm_auf;
+                abschalten;
+            end
+            else    
+                vor;
+    end;
+    
+Procedure anfang;
+    begin
+        while vorne_frei do pizza_kontrolle;
+        drehe_links;
+    end;
+
+Procedure hindernis;
+    begin;
+        while not rechts_frei do vor;
+        drehe_rechts;
+        vor;
+        drehe_rechts;
+        while vorne_frei do vor;
+        drehe_links;
+        while vorne_frei do pizza_kontrolle;
+        drehe_links;
+    end;
+
+
+
+
+
+
+(*Hauptprogramm*)
+    
+begin
+    arbeitsfeld (Gruppenaufgabe);    
+    anfang;
+    while not hat_vorrat do hindernis;
+end.
